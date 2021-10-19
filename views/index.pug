@@ -1,0 +1,15 @@
+extends layout
+
+block layout-content
+  h1 A SVG for you
+  div.View
+    div.imgshow
+        if (img!=undefined)
+            p 
+                != img
+    form(action="/", method="get", enctype="multipart/form-data")
+        label(for="width") Width:
+        input(type="text", name="width", id="width", placeholder="Width")
+        label(for="height") Height:
+        input(type="text", name="height", id="height", placeholder="height")
+        button(type="submit") Submit
