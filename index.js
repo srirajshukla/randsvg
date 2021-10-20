@@ -12,7 +12,8 @@ const random = require('random')
 function generateSVG(width=100, height=100){
     var svg = `<svg xmlns="http://www.w3.org/2000/svg" width="${width}" height="${height}">`;
 
-    for (let i=0; i<random.int(1,width); i++){
+    let times = random.int(1, width);
+    for (let i=0; i<times; i++){
         let x1 = random.int(0,width);
         let y1 = random.int(0,height);
         let x2 = random.int(0,width);
