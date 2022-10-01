@@ -6,6 +6,8 @@ const PORT = process.env.PORT || 3000;
 app.set("views", path.join(__dirname, "views"));
 app.set("view engine", "pug");
 
+// set static folder
+app.use(express.static(path.join(__dirname, "public")));
 
 const random = require('random')
 
@@ -31,6 +33,15 @@ function generateCircle(width, height){
     return `<circle cx="${x}" cy="${y}" r="${r}" stroke="${color}" stroke-width="${sw}" fill-opacity="0.0" />`;
 }
 
+function generateRandomColor(){
+    // generate a random hexadecimal color
+    return "#" + Math.random().toString(16).slice(2, 8);
+}
+
+function generateRectangle(origin, width, height, color){
+    return `<rect x="${origin[0]}" y="${origin[1]}" width="${width}" height="${height}" fill="${color}" />`;
+}
+
 function generateSVG(width=100, height=100, circles=true){
     var svg = `<svg xmlns="http://www.w3.org/2000/svg" width="${width}" height="${height}">`;
 
@@ -39,6 +50,18 @@ function generateSVG(width=100, height=100, circles=true){
     if(circles){
         upbnd = 1;
     }
+
+
+    for (let i=0; i<5; i++){
+        let color = generateRandomColor();
+        let origin = [random.int(0,width), random.int(0,height)];
+        let w = random.int(0,width);
+        let h = random.int(0,height);
+        svg += generateRectangle(origin, w, h, color);
+    }
+
+
+
     for (let i=0; i<times; i++){
         let choice = random.int(0,upbnd);
         if (choice == 0){
@@ -47,6 +70,8 @@ function generateSVG(width=100, height=100, circles=true){
             svg += generateCircle(width, height);
         }
     }
+
+
     svg += `</svg>`;
 
     return svg;

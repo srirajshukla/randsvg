@@ -4,6 +4,9 @@
   "description": "random svg files ",
   "main": "index.js",
   "scripts": {
+    "dev": "nodemon ",
+    "make-css": "npx tailwindcss-cli build -i public/style.tailwind.css -o public/style.tailwind.comp.css",
+    "purge-css": "purgecss --css public/style.tailwind.comp.css --content views/*.pug --output public/style.tailwind.build.css",
     "start": "node index.js",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
@@ -13,5 +16,8 @@
     "express": "^4.17.1",
     "pug": "^3.0.2",
     "random": "^3.0.6"
+  },
+  "devDependencies": {
+    "nodemon": "^2.0.14"
   }
 }
