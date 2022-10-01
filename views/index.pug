@@ -1,17 +1,19 @@
 extends layout
 
 block layout-content
-  h1 A SVG for you
+  h1(class="hello text-4xl font-bold text-center") A SVG for you
   div.View
     div.imgshow
         if (img!=undefined)
-            p 
                 != img
     form(action="/", method="get", enctype="multipart/form-data")
         label(for="width") Width:
         input(type="text", name="width", id="width", placeholder="Width")
+        br
         label(for="height") Height:
         input(type="text", name="height", id="height", placeholder="height")
+        br
         input(type="checkbox" name="circle", id="circle")
         label(for="circle") Draw circle
+        br
         button(type="submit") Submit
