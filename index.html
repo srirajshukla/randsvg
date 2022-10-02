@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <link rel="shortcut icon" href="#" type="image/x-icon">
+    <meta name="theme-color" content="#000000">
+    <link rel="stylesheet" href="/public/style.tailwind.comp.css">
+    <title>An SVG for You</title>
+  </head>
+  <body class="bg-slate-800 p-4 max-w-6xl mx-auto">
+    <div id="root">
+      <h1 class="my-4 bg-clip-text text-transparent bg-gradient-to-r from-lime-500 to-blue-500 text-5xl uppercase font-black text-center">An SVG for You</h1>
+      <form id="form">
+        <div class="flex items-center justify-center flex-wrap my-4">
+          <div class="m-2">
+            <label class="block text-sm font-medium text-lime-500 mr-4 uppercase m-2" for="width">Width</label>
+            <input class="inline-block px-2 py-1 text-lg text-gray-700 bg-lime-100 bg-clip-padding border border-solid border-lime-300 rounded transition ease-in-out m-0 focus:text-gray-700 focus:bg-white focus:border-lime-600 focus:outline-none" type="number" name="width" id="width" placeholder="420">
+          </div>
+          <div class="m-2">
+            <label class="block text-sm font-medium text-lime-500 mr-4 uppercase m-2" for="height">Height</label>
+            <input class="inline-block px-2 py-1 text-lg text-gray-700 bg-lime-100 bg-clip-padding border border-solid border-lime-300 rounded transition ease-in-out m-0 focus:text-gray-700 focus:bg-white focus:border-lime-600 focus:outline-none" type="number" name="height" id="height" placeholder="420">
+          </div>
+          <div class="m-2"><span class="block text-sm font-medium text-lime-500 mr-4 uppercase my-2">Draw circles?</span>
+            <div class="flex">
+              <div class="flex flex-nowrap items-center">
+                <input class="inline-block appearance-none h-4 w-4 border border-lime-300 rounded-sm bg-lime-100 checked:bg-lime-500 checked:border-lime-500 focus:outline-none transition duration-200 m-1 cursor-pointer" type="radio" name="circle" value="yes" id="circle" checked="true">
+                <label class="text-sm font-medium text-lime-500 mr-4 uppercase my-2" for="circle">Yes</label>
+              </div>
+              <div class="flex flex-nowrap items-center">
+                <input class="inline-block appearance-none h-4 w-4 border border-lime-300 rounded-sm bg-lime-100 checked:bg-lime-500 checked:border-indigo-500 focus:outline-none transition duration-200 m-1 cursor-pointer" type="radio" name="circle" value="no" id="circle">
+                <label class="text-sm font-medium text-lime-500 mr-4 uppercase my-2" for="circle">No</label>
+              </div>
+            </div>
+          </div>
+          <button class="inline-block m-2 px-4 py-2 bg-lime-500 text-white text-xl rounded shadow" type="submit">Generate</button>
+        </div>
+      </form>
+      <div id="imgRender" class="flex justify-center mt-8">
+      </div>
+    </div>
+    <script src="/index.js"></script>
+  </body>
+</html>

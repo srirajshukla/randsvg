@@ -1,24 +1,19 @@
 {
-  "name": "jhe",
+  "name": "an-svg-for-you",
   "version": "1.0.0",
-  "description": "random svg files ",
+  "description": "Random SVG Generator",
   "main": "index.js",
   "scripts": {
-    "dev": "nodemon -e js,json,pug",
+    "dev": "browser-sync --watch",
     "tailwind:dev": "npx tailwindcss -i public/style.tailwind.css -o public/style.tailwind.comp.css --watch",
-    "tailwind:comp": "npx tailwindcss -i public/style.tailwind.css -o public/style.tailwind.comp.css",
-    "start": "node index.js",
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "tailwind:comp": "npx tailwindcss -i public/style.tailwind.css -o public/style.tailwind.comp.css"
   },
   "author": "",
   "license": "ISC",
   "dependencies": {
-    "express": "^4.17.1",
-    "pug": "^3.0.2",
-    "random": "^3.0.6",
     "tailwindcss": "^3.1.8"
   },
   "devDependencies": {
-    "nodemon": "^2.0.14"
+    "browser-sync": "^2.27.10"
   }
 }
