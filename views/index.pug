@@ -1,19 +1,26 @@
 extends layout
 
 block layout-content
-  h1(class="hello text-4xl font-bold text-center") A SVG for you
-  div.View
-    div.imgshow
-        if (img!=undefined)
-                != img
+    h1(class="my-4 bg-clip-text text-transparent bg-gradient-to-r from-lime-500 to-blue-500 text-5xl uppercase font-black text-center") A SVG for you
     form(action="/", method="get", enctype="multipart/form-data")
-        label(for="width") Width:
-        input(type="text", name="width", id="width", placeholder="Width")
-        br
-        label(for="height") Height:
-        input(type="text", name="height", id="height", placeholder="height")
-        br
-        input(type="checkbox" name="circle", id="circle")
-        label(for="circle") Draw circle
-        br
-        button(type="submit") Submit
+        div.flex.items-center.justify-center.flex-wrap.my-4
+            div.m-2
+                label(for="width", class="block text-sm font-medium text-lime-500 mr-4 uppercase m-2") Width
+                input(type="number", name="width", id="width", placeholder="420", class="inline-block px-2 py-1 text-lg text-gray-700 bg-lime-100 bg-clip-padding border border-solid border-lime-300 rounded transition ease-in-out m-0 focus:text-gray-700 focus:bg-white focus:border-lime-600 focus:outline-none")
+            div.m-2
+                label(for="height", class="block text-sm font-medium text-lime-500 mr-4 uppercase m-2") Height
+                input(type="number", name="height", id="height", placeholder="420", class="inline-block px-2 py-1 text-lg text-gray-700 bg-lime-100 bg-clip-padding border border-solid border-lime-300 rounded transition ease-in-out m-0 focus:text-gray-700 focus:bg-white focus:border-lime-600 focus:outline-none")
+            div.m-2
+                span(class="block text-sm font-medium text-lime-500 mr-4 uppercase my-2") Draw circles?
+                div.flex
+                    div.flex.flex-nowrap.items-center
+                        input(class="inline-block appearance-none h-4 w-4 border border-lime-300 rounded-sm bg-lime-100 checked:bg-lime-500 checked:border-lime-500 focus:outline-none transition duration-200 m-1 cursor-pointer", type="radio", name="circle", value="on", id="circle", checked="true")
+                        label(for="circle", class="text-sm font-medium text-lime-500 mr-4 uppercase my-2") Yes
+                    div.flex.flex-nowrap.items-center
+                        input(class="inline-block appearance-none h-4 w-4 border border-lime-300 rounded-sm bg-lime-100 checked:bg-lime-500 checked:border-indigo-500 focus:outline-none transition duration-200 m-1 cursor-pointer", type="radio", name="circle", value="", id="circle")
+                        label(for="circle", class="text-sm font-medium text-lime-500 mr-4 uppercase my-2") No
+            button(type="submit").inline-block.m-2.px-4.py-2.bg-lime-500.text-white.text-xl.rounded.shadow Submit
+
+    div.imgshow.flex.justify-center.mt-8
+        if (img!=undefined)
+            != img
