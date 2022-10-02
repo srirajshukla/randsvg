@@ -78,11 +78,26 @@ function handleSubmit(e) {
 
         const img = generateSVG(width, height, circle === "yes")
         imgDiv.innerHTML = img;
+
+        const b64String = window.btoa(img);
+        setFavicon(b64String)
     } else {
         const err = `<p class="text-xl text-lime-500">Error: Please check query parameters.</span>`
         imgDiv.innerHTML = err;
     }
 };
+
+function setFavicon(b64Icon) {
+    const fav = document.querySelector("link[rel~='icon']");
+
+    if (!fav) {
+        fav = document.createElement('link');
+        fav.rel = 'icon';
+        document.getElementsByTagName('head')[0].appendChild(fav);
+    }
+
+    fav.href = `data:image/svg+xml;base64,${b64Icon}`
+}
 
 const form = document.querySelector('#form');
 form.addEventListener("submit", handleSubmit)
